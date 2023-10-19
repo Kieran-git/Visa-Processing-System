@@ -16,4 +16,4 @@ Chosen to use a markdown format, because although it can still be formatted well
 ### Consequences
 
 * We have a more accessible document and we do not compromise on the readability and structure of the ADR.
-* The ADR can be very easily duplicated as it is simply markdown text and so will work anywhere it is used.
+* The ADR template can be very easily duplicated as it is simply markdown text and so will work anywhere it is used.
