@@ -1,5 +1,5 @@
 # Using markdown to document the architecture decision records
-
+Date: 01/10/2023
 ## Context and Problem Statement
 
 The way architecture decision records are stored and then read by anyone viewing the documentation for the system needs to be consistent and clear.
