@@ -1,4 +1,4 @@
-# What documentation should applicants need to provide for a visa application
+# 1. What documentation should applicants need to provide for a visa application
 Date: 19/10/2023
 ## Context and Problem Statement
 
