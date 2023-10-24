@@ -1,4 +1,4 @@
-# Using markdown to document the architecture decision records
+# 0. Using markdown to document the architecture decision records
 Date: 01/10/2023
 ## Context and Problem Statement
 
