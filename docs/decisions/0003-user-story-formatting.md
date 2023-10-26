@@ -12,6 +12,7 @@ We need to decide on a conistent template to be used for creating user stories, 
 ## Decision Outcome
 
 I researched into possible templates to be used for the user stories in the project documentation and came to a choice between the more simple one which provided the minimum necessary information for a user story and then a more complex template including the risks and priority of the requirement.
+
 However, I determined that in the end the more simple user story template was most approriate as the added information isn't necessary at this stage and can be added upon at another point in the documentation if needed.
 
 ### Consequences
