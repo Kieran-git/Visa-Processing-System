@@ -6,18 +6,19 @@ What technology I will use to implement authentication into my system (verifying
 
 ## Considered Options
 
-* 
-* 
+* Biometric authentication
+* Two factor authentication (using an Email notification)
 
 ## Decision Outcome
 
-I originally considered a Non-Relational database such as MongoDB to store the data for the visa processing system due to the need for high performance and fast queries to and from the database.
+I have considered two largely used methods for authentication which realistically both are implemented in modern applications. Especially with mobile applications biometric authentication through the use of fingerprint scanners on new mobile devices is very common this is especially effective as it is very difficult to breach. (Maayan, n.d.)
 
-On the other hand a Relational Database would be highly suited to this system due to how our data can be considered as consistent and non-changing (we will not change user data once submitted) only new data will be created in terms of visa applications, this means we can take advantage of ACID properties and normalise our data to make it easier to handle and maintain.
+The main disadvantage of this is it is not a widespread solution and I would only be able to implent it into the mobile version of the site which is something I intend to only include as a responsive design and not a whole separate application.
 
-The advantages of a Non-relational database do not provide a substantial enough benefit for the increase in complexity that implementing that technology would require therefore I have decided to use an SQL database.
+Therefore it makes a lot more sense to implement a more universal solution such as two factor authentication which involves generating a code at the time the user logs in and then sending this via email or to another device the user owns. This prevents a lot of the most common ways account hacks occur and so I see it as the most suitable for my system. 
 
 ### Consequences
 
-* 
-*
+* Simple username and password based hacking attempts will be prevented.
+* Also provides a method of recovering accounts in the event of forgetting passwords.
+* A simple and effective method of authenticating the user to access the system.
