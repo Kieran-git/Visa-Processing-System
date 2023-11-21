@@ -1,8 +1,8 @@
-# 9. Authentication Decision
-Date: 13/11/2023
+# 9. Data Model decision
+Date: 06/11/2023
 ## Context and Problem Statement
 
-What technology I will use to implement authentication into my system (verifying who someone is)
+What notation and diagram I will use to represent the data within my system.
 
 ## Considered Options
 
