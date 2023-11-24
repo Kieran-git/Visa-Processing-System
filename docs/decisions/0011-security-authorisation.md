@@ -15,7 +15,7 @@ I considered two main solutions to authorisation for my Visa Processing System, 
 
 ABAC is focusing on the attributes and the several things that need to be alligned in order to access that material (clearance level, time, sensitivity, etc) which allows for a very specific and detailed approach to locking down resources which could be useful when dealing with sensitive data like this project will be doing. However, its also much more complex because of this and also takes a lot of time defining rules for each and every resource.
 
-On the other hand RBAC focuses on the individual by assigning people to roles and based upon these roles they have access to different content the main advantage of this is the simplicity despite the security this provides to the sytem, its also fairly quick to setup. However there is the potential of having too many roles as the system expands and then this leads to several hundreds of roles to manage and decide who needs access to what with.
+On the other hand RBAC focuses on the individual by assigning people to roles and based upon these roles they have access to different content the main advantage of this is the simplicity despite the security this provides to the sytem, its also fairly quick to setup. However there is the potential of having too many roles as the system expands and then this leads to several hundreds of roles to manage and decide who needs access to what with. (Okta, 2023)
 
 In conclusion I believe that RBAC despite its potenital shortcoming is the much more straightforward and effective method of implementing authorisation for the visa processing system.
 
