@@ -17,9 +17,9 @@ Firstly there is the potential to implement the concept of CQRS a design pattern
 
 I will not implement CQRS as a design pattern into the system due to the complexity and especially when a simple CRUD style operations running on a single service should be necessary even when the system is scaled up. (Microsoft, n.d.)
 
-Alternatively there is the potential to implement event sourcing a way to trace actions performed on the database and the system in general. The main advantages of this includes enforcing non-repudiation to trace who has taken what actions on the system. But also to monitor the business entity as it changes and evolves as processes are performed on it throughout the system. In our case this would be visa application itself as it is the most critical business entity.
+Alternatively there is the potential to implement event sourcing a way to trace actions performed on the database and the system in general. The main advantages of this includes enforcing non-repudiation to trace who has taken what actions on the system. But also to monitor the business entity as it changes and evolves as processes are performed on it throughout the system. In our case this would be visa application itself as it is the most critical business entity. (Richardson, n.d.)
 
-Therefore I have decided on Event sourcing as I believe it is an essential and very applicable concept to this system.
+Therefore I have decided on Event sourcing as I believe it is an essential and very applicable concept to this system. 
 
 ### Consequences
 
