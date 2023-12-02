@@ -1,0 +1,9 @@
+﻿@page "/VisaApplication"
+@using Models
+
+<h3>VisaApplication</h3>
+
+@code {
+    VisaApplicationBL visaApplicationBL = new VisaApplicationBL(new VisaApplicationDAL());
+    VisaApplication visaApplication = visaApplicationBL.GetVisaApplication();
+}
