@@ -1,0 +1,35 @@
+@startuml
+class "Add`1"<T> {
+}
+class VisaApplicationBL {
+    + VisaApplicationBL(visaApplicationDAL:IVisaApplicationDAL)
+    + GetVisaApplication(visaApplicationID:int) : VisaApplication
+}
+interface IVisaApplicationDAL {
+}
+class VisaApplicationDAL {
+    + SelectVisaApplication(visaApplicationID:int) : VisaApplication
+}
+IVisaApplicationDAL <|-- VisaApplicationDAL
+class User {
+    + UserID : int <<get>>
+    + Role : string <<get>> = "Applicant"
+}
+class Visa {
+    + VisaID : int <<get>>
+    + VisaType : VisaType? <<get>>
+}
+class VisaApplication {
+    + VisaApplicationID : int <<get>> <<set>>
+    + UserID : int <<get>> <<set>>
+    + Visa : Visa? <<get>> <<set>>
+    + Intentions : string <<get>> <<set>>
+    + CountryOfOrigin : string <<get>> <<set>>
+    + Destination : string <<get>> <<set>>
+    + Documentation : List<string>? <<get>> <<set>>
+}
+class VisaType {
+    + UserID : int <<get>>
+    + Type : string? <<get>>
+}
+@enduml

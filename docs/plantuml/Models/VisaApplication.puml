@@ -1,0 +1,11 @@
+@startuml
+class VisaApplication {
+    + VisaApplicationID : int <<get>> <<set>>
+    + UserID : int <<get>> <<set>>
+    + Visa : Visa? <<get>> <<set>>
+    + Intentions : string <<get>> <<set>>
+    + CountryOfOrigin : string <<get>> <<set>>
+    + Destination : string <<get>> <<set>>
+    + Documentation : List<string>? <<get>> <<set>>
+}
+@enduml

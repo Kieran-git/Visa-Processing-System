@@ -8,6 +8,6 @@ namespace AFS_Visa_Processing_System.Models
         public string Intentions { get; set; } = string.Empty;
         public string CountryOfOrigin { get; set; } = string.Empty;
         public string Destination { get; set; } = string.Empty;
-        public List<string>? Documentation { get; set; }
+        public List<string> Documentation { get; set; } = new List<string> {""};
     }
 }

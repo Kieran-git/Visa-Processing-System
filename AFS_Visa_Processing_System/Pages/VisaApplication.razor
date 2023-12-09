@@ -1,9 +1,16 @@
 ﻿@page "/VisaApplication"
 @using Models
+@inject IVisaApplicationService visaApplicationService
 
-<h3>VisaApplication</h3>
+<PageTitle>Apply For A Visa</PageTitle>
+<h3>Visa Application</h3>
 
-@code {
-    VisaApplicationBL visaApplicationBL = new VisaApplicationBL(new VisaApplicationDAL());
-    //VisaApplication visaApplication = visaApplicationBL.GetVisaApplication();
+@code
+{
+    List<Models.VisaApplication> visaApps;
+    protected void OnInitalized()
+    {
+        visaApps = visaApplicationService.GetAllVisaApplication();
+    }
+
 }
