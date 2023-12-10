@@ -3,7 +3,86 @@
 @inject IVisaApplicationService visaApplicationService
 
 <PageTitle>Apply For A Visa</PageTitle>
-<h3>Visa Application</h3>
+<h1>Visa Application</h1>
+
+<div id="container" class="container mt-5">
+    <div class="progress px-1" style="height: 3px;">
+        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="100"></div>
+    </div>
+    <div class="step-container d-flex justify-content-between">
+        <div class="step-circle" onclick="displayStep(1)">1</div>
+        <div class="step-circle" onclick="displayStep(2)">2</div>
+        <div class="step-circle" onclick="displayStep(3)">3</div>
+    </div>
+
+    <form class="border border-2 rounded p-2" id="multi-step-form">
+        <div class="step step-1 p-1">
+            <!-- Step 1 form fields here -->
+            <h3>Contact Information</h3>
+            <div class="mb-3">
+                <label for="legalName" class="form-label">Full Legal Name</label>
+                <input type="text" class="form-control" id="legalName">
+            </div>
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                <input type="date" class="form-control" id="dateOfBirth">
+            </div>
+            <button type="button" class="btn btn-primary next-step">Next</button>
+        </div>
+
+        <div class="step step-2 p-1">
+            <!-- Step 2 form fields here -->
+            <h3>Intentions</h3>
+            <div class="mb-3">
+                <label for="field2" class="form-label">Field 2:</label>
+                <input type="text" class="form-control" id="field2" name="field2">
+            </div>
+            <button type="button" class="btn btn-secondary prev-step">Previous</button>
+            <button type="button" class="btn btn-primary next-step">Next</button>
+        </div>
+
+        <div class="step step-3 p-1">
+            <!-- Step 3 form fields here -->
+            <h3>Documentation</h3>
+            <div class="mb-3">
+                <label for="field3" class="form-label">Field 3:</label>
+                <input type="text" class="form-control" id="field3" name="field3">
+            </div>
+            <button type="button" class="btn btn-secondary prev-step">Previous</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
+
+@* <div class="row justify-content-center mt-6">
+<div class="col-sm-4 border border-1 rounded-1 p-3">
+
+<!--<EditForm>-->
+<div class="step1">
+<div class="mb-3">
+<label for="legalName" class="form-label">Full Legal Name</label>
+<input type="text" class="form-control" id="legalName">
+</div>
+<div class="mb-3">
+<label for="dateOfBirth" class="form-label">Date Of Birth</label>
+<input type="date" class="form-control" id="dateOfBirth">
+</div>
+
+</div>
+
+<div class="step2">
+
+</div>
+
+<button type="submit" class="btn btn-secondary">Back</button>
+<button type="submit" class="btn btn-primary" onclick="">Next</button>
+<!--</EditForm>-->
+</div>
+</div> *@
+
+<script src="js\multiStepForm.js"></script>
+
 
 @code
 {
