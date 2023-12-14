@@ -17,28 +17,35 @@
         <div class="step-circle" onclick="displayStep(3)">3</div>
     </div>
 
-    <form class="border border-2 rounded p-2" id="multi-step-form">
+    <EditForm Model="visaApp" OnValidSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
+        <DataAnnotationsValidator />
+
         <div class="step step-1 p-1">
             <!-- Step 1 form fields here -->
             <h3>Basic Information</h3>
             <div class="mb-3">
                 <label for="legalName" class="form-label">Full Legal Name</label>
-                <input type="text" class="form-control" id="legalName">
+                <InputText @bind-Value="visaApp.FullLegalName" name="Full Legal Name" type="text" class="form-control"
+                    id="legalName" />
             </div>
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
-                <input type="date" class="form-control" id="dateOfBirth">
+                <InputDate @bind-Value="visaApp.DateOfBirth" class="form-control" id="dateOfBirth">
+                </InputDate>
             </div>
             <div class="mb-3">
                 <label for="emailAddress" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp">
+                <InputText @bind-Value="visaApp.EmailAddress" type="email" class="form-control" id="emailAddress"
+                    aria-describedby="emailHelp" />
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="contactNumber" class="form-label">Contact Number</label>
-                <input type="number" class="form-control" id="contactNumber" aria-describedby="contactNumberHelp">
+                <InputNumber @bind-Value="visaApp.ContactNumber" type="number" class="form-control" id="contactNumber"
+                    aria-describedby="contactNumberHelp" />
                 <div id="contactNumberHelp" class="form-text">Please include the country prefix e.g: UK = 0</div>
             </div>
+            <ValidationSummary />
             <button type="button" class="btn btn-primary next-step">Next</button>
         </div>
 
@@ -47,26 +54,29 @@
             <h3>Specific Visa Information</h3>
             <div class="mb-3">
                 <label for="visaType" class="form-label">Visa Type</label>
-                <select id="visaType" class="form-select">
+                <InputSelect @bind-Value="visaApp.VisaType" id="visaType" class="form-select">
                     <option selected>Select Visa Type</option>
                     @foreach (string name in Enum.GetNames(typeof(VisaType)))
                     {
                         <option value="@name">@name</option>
                     }
-                </select>
+                </InputSelect>
             </div>
             <div class="mb-3">
                 <label for="purposeOfStay" class="form-label">Purpose Of Stay</label>
-                <textarea class="form-control" id="purposeOfStay" rows="3"></textarea>
+                <InputTextArea @bind-Value="visaApp.PurposeOfStay" class="form-control" id="purposeOfStay" rows="3" />
             </div>
             <div class="mb-3">
                 <label for="countryOfOrigin" class="form-label">Country Of Origin</label>
-                <input type="text" class="form-control" id="countryOfOrigin">
+                <InputText @bind-Value="visaApp.CountryOfOrigin" type="text" class="form-control"
+                    id="countryOfOrigin" />
             </div>
             <div class="mb-3">
                 <label for="countryOfDestination" class="form-label">Country Of Destination</label>
-                <input type="text" class="form-control" id="countryOfDestination">
+                <InputText @bind-Value="visaApp.CountryOfDestination" type="text" class="form-control"
+                    id="countryOfDestination" />
             </div>
+            <ValidationSummary />
             <button type="button" class="btn btn-secondary prev-step">Previous</button>
             <button type="button" class="btn btn-primary next-step">Next</button>
         </div>
@@ -88,19 +98,42 @@
                     Scan of Utility bill, bank statement, tax documents, etc. Seek visa advice for more info...
                 </div>
             </div>
+            <ValidationSummary />
             <button type="button" class="btn btn-secondary prev-step">Previous</button>
             <button type="submit" class="btn btn-success">Submit</button>
         </div>
-    </form>
+    </EditForm>
 </div>
 <script src="js\multiStepForm.js"></script>
 
 @code
 {
-    Models.VisaApplication? visaApp;
-    protected void OnInitalized()
+    Models.VisaApplication? visaApp = new Models.VisaApplication();
+    DateTime minimumAge = DateTime.Today.AddYears(-18);
+    bool cacheExists = false; // Not implemented
+
+    protected override void OnParametersSet()
     {
-        visaApp = visaApplicationData.GetVisaApplicationByID(0);
+        if (cacheExists)
+        {
+            // Get in progress visa application
+        }
+        else
+        {
+            visaApp = new Models.VisaApplication()
+                {
+                    DateOfBirth = minimumAge
+                };
+        }
     }
 
+    public void HandleSubmit()
+    {
+
+    }
+
+    protected void OnInitalized()
+    {
+
+    }
 }
