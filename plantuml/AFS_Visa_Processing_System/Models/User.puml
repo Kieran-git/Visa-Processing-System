@@ -1,0 +1,6 @@
+@startuml
+class User {
+    + UserID : int <<get>> <<set>>
+    + Role : string <<get>> <<set>> = "Applicant"
+}
+@enduml

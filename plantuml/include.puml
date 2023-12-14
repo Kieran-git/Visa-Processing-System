@@ -1,0 +1,43 @@
+@startuml
+class "Add`1"<T> {
+}
+class "AddSingleton`2"<T1,T2> {
+}
+class User {
+    + UserID : int <<get>> <<set>>
+    + Role : string <<get>> <<set>> = "Applicant"
+}
+class Visa {
+    + VisaID : int <<get>> <<set>>
+}
+Visa --> "VisaType" VisaType
+class VisaApplication {
+    + VisaApplicationID : int <<get>> <<set>>
+    + UserID : int <<get>> <<set>>
+    + Visa : Visa? <<get>> <<set>>
+    + PurposeOfStay : string <<get>> <<set>>
+    + CountryOfOrigin : string <<get>> <<set>>
+    + CountryOfDestination : string <<get>> <<set>>
+    + Documentation : List<string> ? <<get>> <<set>>
+}
+enum VisaType {
+    Work,
+    Business,
+    Study,
+    Visitor,
+    Family,
+}
+interface IVisaApplicationBusiness {
+}
+interface IVisaApplicationData {
+}
+class VisaApplicationBusiness {
+    + SaveToCache() : bool
+}
+IVisaApplicationBusiness <|-- VisaApplicationBusiness
+class VisaApplicationData {
+    + CreateVisaApplication() : bool
+    + GetVisaApplicationByID(VisaApplicationID:int) : VisaApplication
+}
+IVisaApplicationData <|-- VisaApplicationData
+@enduml

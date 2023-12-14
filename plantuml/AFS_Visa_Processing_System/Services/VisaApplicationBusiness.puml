@@ -1,0 +1,6 @@
+@startuml
+class VisaApplicationBusiness {
+    + SaveToCache() : bool
+}
+IVisaApplicationBusiness <|-- VisaApplicationBusiness
+@enduml

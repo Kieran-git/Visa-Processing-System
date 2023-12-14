@@ -1,0 +1,9 @@
+@startuml
+enum VisaType {
+    Work,
+    Business,
+    Study,
+    Visitor,
+    Family,
+}
+@enduml

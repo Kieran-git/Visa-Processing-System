@@ -1,0 +1,6 @@
+@startuml
+class Visa {
+    + VisaID : int <<get>> <<set>>
+}
+Visa --> "VisaType" VisaType
+@enduml
