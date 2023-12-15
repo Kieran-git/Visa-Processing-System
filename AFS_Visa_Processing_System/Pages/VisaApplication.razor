@@ -15,11 +15,10 @@
         <div class="step-circle" onclick="displayStep(1)">1</div>
         <div class="step-circle" onclick="displayStep(2)">2</div>
         <div class="step-circle" onclick="displayStep(3)">3</div>
+        <div class="step-circle" onclick="displayStep(4)">4</div>
     </div>
 
-    <EditForm Model="visaApp" OnValidSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
-        <DataAnnotationsValidator />
-
+    <EditForm Model="visaApp" OnSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
         <div class="step step-1 p-1">
             <!-- Step 1 form fields here -->
             <h3>Basic Information</h3>
@@ -30,8 +29,7 @@
             </div>
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
-                <InputDate @bind-Value="visaApp.DateOfBirth" class="form-control" id="dateOfBirth">
-                </InputDate>
+                <InputDate @bind-Value="visaApp.DateOfBirth" class="form-control" id="dateOfBirth" />
             </div>
             <div class="mb-3">
                 <label for="emailAddress" class="form-label">Email Address</label>
@@ -45,7 +43,6 @@
                     aria-describedby="contactNumberHelp" />
                 <div id="contactNumberHelp" class="form-text">Please include the country prefix e.g: UK = 0</div>
             </div>
-            <ValidationSummary />
             <button type="button" class="btn btn-primary next-step">Next</button>
         </div>
 
@@ -68,15 +65,18 @@
             </div>
             <div class="mb-3">
                 <label for="countryOfOrigin" class="form-label">Country Of Origin</label>
-                <InputText @bind-Value="visaApp.CountryOfOrigin" type="text" class="form-control"
-                    id="countryOfOrigin" />
+                <InputSelect @bind-Value="visaApp.CountryOfOrigin" id="countryOfOrigin" class="form-select">
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ukraine">Ukraine</option>
+                </InputSelect>
             </div>
             <div class="mb-3">
                 <label for="countryOfDestination" class="form-label">Country Of Destination</label>
-                <InputText @bind-Value="visaApp.CountryOfDestination" type="text" class="form-control"
-                    id="countryOfDestination" />
+                <InputSelect @bind-Value="visaApp.CountryOfDestination" id="countryOfDestination" class="form-select">
+                    <option value="United Kingdom">United Kingdom</option>
+                </InputSelect>
             </div>
-            <ValidationSummary />
             <button type="button" class="btn btn-secondary prev-step">Previous</button>
             <button type="button" class="btn btn-primary next-step">Next</button>
         </div>
@@ -98,7 +98,25 @@
                     Scan of Utility bill, bank statement, tax documents, etc. Seek visa advice for more info...
                 </div>
             </div>
-            <ValidationSummary />
+            <button type="button" class="btn btn-secondary prev-step">Previous</button>
+            <button type="button" class="btn btn-primary next-step">Next</button>
+        </div>
+
+        <div class="step step-4 p-1">
+            <!-- Step 4 form fields here -->
+            <h3>Confirm and Submit</h3>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Full Legal Name: @visaApp.FullLegalName</li>
+                <li class="list-group-item">Date Of Birth: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</li>
+                <li class="list-group-item">Email Address: @visaApp.EmailAddress</li>
+                <li class="list-group-item">Contact Number: @visaApp.ContactNumber.ToString()</li>
+                <li class="list-group-item">Visa Type: @visaApp.VisaType.ToString()</li>
+                <li class="list-group-item">Purpose Of Stay: @visaApp.PurposeOfStay</li>
+                <li class="list-group-item">Country Of Origin: @visaApp.CountryOfOrigin</li>
+                <li class="list-group-item">Country Of Destination: @visaApp.CountryOfDestination</li>
+                <li class="list-group-item">Documentation: @documentationMessage</li>
+            </ul>
             <button type="button" class="btn btn-secondary prev-step">Previous</button>
             <button type="submit" class="btn btn-success">Submit</button>
         </div>
@@ -108,12 +126,16 @@
 
 @code
 {
+    string appoutput = "";
     Models.VisaApplication? visaApp = new Models.VisaApplication();
     DateTime minimumAge = DateTime.Today.AddYears(-18);
+    bool validDocumentation = false;
+    string documentationMessage = "";
     bool cacheExists = false; // Not implemented
-
     protected override void OnParametersSet()
     {
+        documentationMessage = validDocumentation ? "Documentation has been uploaded." : "Documentation has not been uploaded.";
+
         if (cacheExists)
         {
             // Get in progress visa application
@@ -129,7 +151,7 @@
 
     public void HandleSubmit()
     {
-
+        
     }
 
     protected void OnInitalized()

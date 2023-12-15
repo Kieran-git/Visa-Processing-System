@@ -3,7 +3,7 @@ var currentStep = 1;
 
     function displayStep(stepNumber)
     {
-        if (stepNumber >= 1 && stepNumber <= 3)
+        if (stepNumber >= 1 && stepNumber <= 4)
         {
             $(".step-" + currentStep).hide();
             $(".step-" + stepNumber).show();
@@ -18,7 +18,7 @@ var currentStep = 1;
 
         $(".next-step").click(function ()
         {
-            if (currentStep < 3)
+            if (currentStep < 4)
             {
                 $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
                 currentStep++;
@@ -48,7 +48,7 @@ var currentStep = 1;
 
         updateProgressBar = function ()
         {
-            var progressPercentage = ((currentStep - 1) / 2) * 100;
+            var progressPercentage = ((currentStep - 1) / 3) * 100;
             $(".progress-bar").css("width", progressPercentage + "%");
         }
     });
