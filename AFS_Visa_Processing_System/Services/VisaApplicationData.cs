@@ -6,7 +6,7 @@ namespace AFS_Visa_Processing_System.Services
     {
         public bool CreateVisaApplication()
         {
-            return true;
+            return false;
         }
 
         public VisaApplication GetVisaApplicationByID(int VisaApplicationID)
