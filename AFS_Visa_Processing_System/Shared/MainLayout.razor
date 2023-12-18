@@ -1,37 +1,40 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page" data-bs-theme="dark">
-    <main>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-2">
-            <div class="container-fluid">
+<body data-bs-theme="dark">
+    <div class="page">
+        <main>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-2">
+                <div class="container-fluid">
 
-                <a class="navbar-brand" href="">
-                    <iconify-icon icon="mdi:passport" class="d-inline-block align-middle" style="color: gray;"
-                        width="100" height="100"></iconify-icon>
-                    AFS Visa Processing System
-                </a>
+                    <a class="navbar-brand" href="">
+                        <iconify-icon icon="mdi:passport" class="d-inline-block align-middle" style="color: gray;"
+                            width="100" height="100"></iconify-icon>
+                        AFS Visa Processing System
+                    </a>
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Get Visa Advice</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="VisaApplication">Apply For A Visa</a>
-                    </li>
-                </ul>
-                <div class="d-flex p-3 align-items-center">
-                    <iconify-icon icon="mdi:user" class="border border-2 rounded-circle" style="color: gray;" width="75"
-                        height="75"></iconify-icon>
-                    <strong class="p-2">Username</strong>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Get Visa Advice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="VisaApplication">Apply For A Visa</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex p-3 align-items-center">
+                        <button type="button" class="btn border border-2 m-2" onclick="themeToggle()">Theme Toggle</button>
+
+                        <iconify-icon icon="mdi:user" class="border border-2 rounded-circle" style="color: gray;" width="75"
+                            height="75"></iconify-icon>
+                        <strong class="p-2">Username</strong>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+</body>
+
+<script src="js\themeToggle.js"></script>
