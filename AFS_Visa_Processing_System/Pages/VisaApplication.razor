@@ -1,7 +1,7 @@
 ﻿@page "/VisaApplication"
 @using Models
 @using Services
-@inject IVisaApplicationData visaApplicationData
+@inject IVisaApplicationRepository visaAppRepo
 
 <PageTitle>Apply For A Visa</PageTitle>
 <h2 style="text-align: center">Apply For A Visa</h2>
@@ -18,14 +18,14 @@
         <div class="step-circle" onclick="displayStep(4)">4</div>
     </div>
 
-    <EditForm Model="visaApp" OnSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
+    <EditForm Model="visaApp" OnValidSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
+        <DataAnnotationsValidator />
         <div class="step step-1 p-1">
             <!-- Step 1 form fields here -->
             <h3>Basic Information</h3>
             <div class="mb-3">
                 <label for="legalName" class="form-label">Full Legal Name</label>
-                <InputText @bind-Value="visaApp.FullLegalName" name="Full Legal Name" type="text" class="form-control"
-                    id="legalName" />
+                <InputText @bind-Value="visaApp!.FullLegalName" type="text" class="form-control" id="legalName" />
             </div>
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
@@ -43,7 +43,10 @@
                     aria-describedby="contactNumberHelp" />
                 <div id="contactNumberHelp" class="form-text">Please include the country prefix e.g: UK = 0</div>
             </div>
-            <button type="button" class="btn btn-primary next-step">Next</button>
+            <div class="pb-3">
+                <button type="button" class="btn btn-primary next-step">Next</button>
+            </div>
+            <ValidationSummary />
         </div>
 
         <div class="step step-2 p-1">
@@ -77,8 +80,11 @@
                     <option value="United Kingdom">United Kingdom</option>
                 </InputSelect>
             </div>
-            <button type="button" class="btn btn-secondary prev-step">Previous</button>
-            <button type="button" class="btn btn-primary next-step">Next</button>
+            <div class="pb-3">
+                <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                <button type="button" class="btn btn-primary next-step">Next</button>
+            </div>
+            <ValidationSummary />
         </div>
 
         <div class="step step-3 p-1">
@@ -98,8 +104,11 @@
                     Scan of Utility bill, bank statement, tax documents, etc. Seek visa advice for more info...
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary prev-step">Previous</button>
-            <button type="button" class="btn btn-primary next-step">Next</button>
+            <div class="pb-3">
+                <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                <button type="button" class="btn btn-primary next-step">Next</button>
+            </div>
+            <ValidationSummary />
         </div>
 
         <div class="step step-4 p-1">
@@ -117,10 +126,12 @@
                 <li class="list-group-item">Country Of Destination: @visaApp.CountryOfDestination</li>
                 <li class="list-group-item">Documentation: @documentationMessage</li>
             </ul>
-            <button type="button" class="btn btn-secondary prev-step">Previous</button>
-            <button type="submit" class="btn btn-success">Submit</button>
-
-            <div style="text-align: center; color: @msgColour" class="pt-3">@formStatusMsg</div>
+            <div class="pb-3">
+                <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                <button type="submit" class="btn btn-success pb-2">Submit</button>
+            </div>
+            <ValidationSummary />
+            <div style="text-align: center; color: @msgColour">@formStatusMsg</div>
         </div>
     </EditForm>
 </div>
@@ -129,13 +140,21 @@
 @code
 {
     Models.VisaApplication? visaApp;
+
     bool validDocumentation = false;
     string documentationMessage = "";
-    bool formValid = false;
+    
+    bool visaAppCreated = false;
+
     string formStatusMsg = "";
     string msgColour = "";
 
     bool cacheExists = false; // Not implemented
+
+    protected void OnInitalized()
+    {
+
+    }
 
     protected override void OnParametersSet()
     {
@@ -147,40 +166,30 @@
         }
         else
         {
-            visaApp = new Models.VisaApplication()
-            {
-                DateOfBirth = DateTime.Today.AddYears(-18)
-            };
+            // Create fresh empty object to be populated by form
+            visaApp = new Models.VisaApplication();
         }
     }
 
-    private string ValidForm()
-    {
-        string invalidFields = string.Empty;
-        if (visaApp.FullLegalName == string.Empty) invalidFields += "Full Legal Name is required.";
-        if (visaApp.DateOfBirth > DateTime.Today.AddYears(-18)) invalidFields += "The minimum age to apply for a visa application is 18.<br>";
-        if (visaApp.EmailAddress == string.Empty) invalidFields += "Email Address is required.<br>";
-
-        return invalidFields;
-    }
-
+    // Can only enter this function when form fields are all valid
     public void HandleSubmit()
     {
-        string invalidFields = ValidForm();
-        if (invalidFields == string.Empty && visaApplicationData.CreateVisaApplication())
+        try
         {
-            formValid = true;
-            formStatusMsg = "Visa Application has been succesfully created.";
+            if (visaAppRepo.CreateVisaApplication())
+            {
+                visaAppCreated = true;
+                formStatusMsg = "Visa Application has been succesfully created.";
+            }
+            else
+            {
+                formStatusMsg = $"Visa Application could not be created.";
+            }
         }
-        else
+        catch(Exception ex)
         {
-            formStatusMsg = "Visa Application could not be created, the following criteria must be met: \b" + invalidFields;
+            formStatusMsg = $"Visa Application could not be created.\b Error: {ex.Message} \b Please contact a system administrator...";
         }
-        msgColour = formValid ? "Green" : "Red";
-    }
-
-    protected void OnInitalized()
-    {
-
+        msgColour = visaAppCreated ? "Green" : "Red";
     }
 }

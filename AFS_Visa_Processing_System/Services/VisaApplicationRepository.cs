@@ -2,7 +2,7 @@ using AFS_Visa_Processing_System.Models;
 
 namespace AFS_Visa_Processing_System.Services
 {
-    public class VisaApplicationData : IVisaApplicationData
+    public class VisaApplicationRepository : IVisaApplicationRepository
     {
         public bool CreateVisaApplication()
         {
@@ -13,6 +13,11 @@ namespace AFS_Visa_Processing_System.Services
         {
             // Not implemented dummy data
             return new VisaApplication();
+        }
+
+        public bool SaveToCache() 
+        {
+            return false;     
         }
     }
 }
