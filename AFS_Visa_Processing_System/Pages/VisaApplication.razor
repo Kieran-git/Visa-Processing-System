@@ -21,7 +21,7 @@
             <div class="step-circle" onclick="displayStep(4)">4</div>
         </div>
 
-        <EditForm Model="visaApp" OnValidSubmit="HandleSubmit" class="border border-2 rounded p-2" id="multi-step-form">
+        <EditForm Model="visaApp" OnValidSubmit="HandleSubmit" class="border border-3 rounded p-2" id="multi-step-form">
             <DataAnnotationsValidator />
             <div class="step step-1 p-1">
                 <!-- Step 1 form fields here -->
@@ -84,7 +84,7 @@
                     </InputSelect>
                 </div>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
                     <button type="button" class="btn btn-primary next-step">Next</button>
                 </div>
                 <ValidationSummary />
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
                     <button type="button" class="btn btn-primary next-step">Next</button>
                 </div>
                 <ValidationSummary />
@@ -118,7 +118,7 @@
                 <!-- Step 4 form fields here -->
                 <h3>Confirm and Submit</h3>
 
-                <ul class="list-group list-group-flush p-1">
+                <ul class="list-group list-group-flush pb-1">
                     <li class="list-group-item">Full Legal Name: @visaApp.FullLegalName</li>
                     <li class="list-group-item">Date Of Birth: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</li>
                     <li class="list-group-item">Email Address: @visaApp.EmailAddress</li>
@@ -130,7 +130,7 @@
                     <li class="list-group-item">Documentation: @documentationMessage</li>
                 </ul>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
                     <button type="submit" class="btn btn-success pb-2">Submit</button>
                 </div>
                 <ValidationSummary />

@@ -12,6 +12,11 @@ a, .btn-link {
     color: #0071c1;
 }
 
+.navbar-darktheme
+{
+    background-color: #151F2E;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
