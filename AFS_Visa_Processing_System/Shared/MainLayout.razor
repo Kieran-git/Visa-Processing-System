@@ -14,16 +14,49 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Get Visa Advice</a>
+                            <a class="nav-link" href="">
+                                <div class="english">Get Visa Advice</div>
+                                <div class="french">Conseils Sur Les Visas</div>
+                                <div class="german">Visa Beratung</div>
+                                <div class="ukranian">Візова консультація</div>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="VisaApplication">Apply For A Visa</a>
+                            <a id="visaAppNav" class="nav-link" href="VisaApplication">
+                                <div class="english">Apply For A Visa</div>
+                                <div class="french">Demander Un Visa</div>
+                                <div class="german">Ein Visum Beantr</div>
+                                <div class="ukranian">Подати заявку на отримання візи</div>
+                            </a>
                         </li>
                     </ul>
                     <div class="d-flex p-3 align-items-center">
-                        <button type="button" class="btn border border-2 m-2" id="btnThemeToggle" onclick="themeToggle()">Theme Toggle</button>
 
-                        <iconify-icon icon="mdi:user" class="border border-2 rounded-circle" style="color: gray;" width="75"
+                        <div>
+                            <select class="form-select" id="languageSelector">
+                                <option selected value="english">English</option>
+                                <option value="french">Français</option>
+                                <option value="german">Deutsch</option>
+                                <option value="ukraine">Українська</option>
+                            </select>
+                        </div>
+                        <div class="m-1">
+                            <iconify-icon id="ukFlag" class="align-middle" icon="openmoji:flag-united-kingdom" width="25" height="25"></iconify-icon>
+                            <iconify-icon id="franceFlag" class="align-middle" icon="openmoji:flag-france" width="25" height="25"></iconify-icon>
+                            <iconify-icon id="germanyFlag" class="align-middle" icon="openmoji:flag-germany" width="25" height="25"></iconify-icon>
+                            <iconify-icon id="ukraineFlag" class="align-middle" icon="openmoji:flag-ukraine" width="25" height="25"></iconify-icon>
+                        </div>
+                        
+                        @*  *@
+
+                        <button type="button" class="btn border border-2" id="btnThemeToggle" onclick="themeToggle()">
+                            <div class="english">Theme Toggle</div>
+                            <div class="french">Thème Toggle</div>
+                            <div class="german">Thema Umschalten</div>
+                            <div class="ukranian">Перемикання теми</div>
+                        </button>
+
+                        <iconify-icon icon="mdi:user" class="border border-2 rounded-circle ms-2" style="color: gray;" width="75"
                             height="75"></iconify-icon>
                         <strong class="p-2">Username</strong>
                     </div>
@@ -38,3 +71,4 @@
 </body>
 
 <script src="js\themeToggle.js"></script>
+<script src="js\languageToggle.js"></script>

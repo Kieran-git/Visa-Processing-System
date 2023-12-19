@@ -8,6 +8,7 @@ function themeToggle() {
     $("li.list-group-item").toggleClass("bg-secondary text-white")
 
     $("#btnThemeToggle").toggleClass("btn-dark");
+    $("#languageSelector").toggleClass("bg-dark text-white")
 
     $("div.step-container").toggleClass("text-black");
     $("div.form-text").toggleClass("text-white");

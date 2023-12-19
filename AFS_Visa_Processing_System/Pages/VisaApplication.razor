@@ -7,7 +7,10 @@
 
 
 <body>
-    <h2 style="text-align: center">Apply For A Visa</h2>
+    <h2 style="text-align: center" class="english">Apply For A Visa</h2>
+    <h2 hidden style="text-align: center" class="french">Demander Un Visa</h2>
+    <h2 hidden style="text-align: center" class="german">Ein Visum Beantr</h2>
+    <h2 hidden style="text-align: center" class="ukranian">Подати заявку на отримання візи</h2>
 
     <div id="container" class="container mt-4">
         <div class="progress px-1" style="height: 3px;">
@@ -25,38 +28,86 @@
             <DataAnnotationsValidator />
             <div class="step step-1 p-1">
                 <!-- Step 1 form fields here -->
-                <h3>Basic Information</h3>
+                <h3 class="english">Basic Information</h3>
+                <h3 hidden class="french">Informations Générales</h3>
+                <h3 hidden class="german">Grundlegende Informationen</h3>
+                <h3 hidden class="ukranian">Основна інформація</h3>
+
                 <div class="mb-3">
-                    <label for="legalName" class="form-label">Full Legal Name</label>
+                    <label for="legalName" class="form-label">
+                        <div class="english">Full Legal Name</div>
+                        <div hidden class="french">Nom Légal Complet</div>
+                        <div hidden class="german">Vollständiger Rechtlicher Name</div>
+                        <div hidden class="ukranian">Повна юридична назва</div>
+                    </label>
                     <InputText @bind-Value="visaApp!.FullLegalName" type="text" class="form-control" id="legalName" />
                 </div>
                 <div class="mb-3">
-                    <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                    <label for="dateOfBirth" class="form-label">
+                        <div class="english">Date Of Birth</div>
+                        <div hidden class="french">Date De Naissance</div>
+                        <div hidden class="german">Geburtsdatum</div>
+                        <div hidden class="ukranian">Дата народження</div>
+                    </label>
                     <InputDate @bind-Value="visaApp.DateOfBirth" class="form-control" id="dateOfBirth" />
                 </div>
                 <div class="mb-3">
-                    <label for="emailAddress" class="form-label">Email Address</label>
+                    <label for="emailAddress" class="form-label">
+                        <div class="english">Email Address</div>
+                        <div hidden class="french">Adresse Électronique</div>
+                        <div hidden class="german">Email-Adresse</div>
+                        <div hidden class="ukranian">Email адреса</div>
+                    </label>
                     <InputText @bind-Value="visaApp.EmailAddress" type="email" class="form-control" id="emailAddress"
                         aria-describedby="emailHelp" />
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" class="form-text">
+                        <div class="english">We will never share your email with anyone else.</div>
+                        <div hidden class="french">Nous ne communiquerons jamais votre adresse électronique à qui que ce soit.</div>
+                        <div hidden class="german">Wir werden Ihre Email niemals an Dritte weitergeben.</div>
+                        <div hidden class="ukranian">Ми ніколи не передамо вашу електронну пошту нікому іншому.</div>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="contactNumber" class="form-label">Contact Number</label>
+                    <label for="contactNumber" class="form-label">
+                        <div class="english">Contact Number</div>
+                        <div hidden class="french">Numéro De Contact</div>
+                        <div hidden class="german">Kontakt Nummer</div>
+                        <div hidden class="ukranian">Контактний номер</div>
+                    </label>
                     <InputNumber @bind-Value="visaApp.ContactNumber" type="number" class="form-control" id="contactNumber"
                         aria-describedby="contactNumberHelp" />
-                    <div id="contactNumberHelp" class="form-text">Please include the country prefix e.g: UK = 0</div>
+                    <div id="contactNumberHelp" class="form-text">
+                        <div class="english">Please include the country prefix e.g: UK = 0</div>
+                        <div hidden class="french">Veuillez indiquer le préfixe du pays, par exemple UK = 0</div>
+                        <div hidden class="german">Bitte geben Sie die Landesvorwahl an, z. B: UK = 0</div>
+                        <div hidden class="ukranian">Будь ласка, додайте префікс країни, наприклад UK = 0</div>
+                    </div>
                 </div>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-primary next-step">Next</button>
+                    <button type="button" class="btn btn-primary next-step">
+                        <div class="english">Next</div>
+                        <div hidden class="french">Suivant</div>
+                        <div hidden class="german">Weiter</div>
+                        <div hidden class="ukranian">Далі</div>
+                    </button>
                 </div>
                 <ValidationSummary />
             </div>
 
             <div class="step step-2 p-1">
                 <!-- Step 2 form fields here -->
-                <h3>Specific Visa Information</h3>
+                <h3 class="english">Specific Visa Information</h3>
+                <h3 hidden class="french">Informations Spécifiques Sur Les Visas</h3>
+                <h3 hidden class="german">Spezifische Visa-Informationen</h3>
+                <h3 hidden class="ukranian">Конкретна візова інформація</h3>
+
                 <div class="mb-3">
-                    <label for="visaType" class="form-label">Visa Type</label>
+                    <label for="visaType" class="form-label">
+                        <div class="english">Visa Type</div>
+                        <div hidden class="french">Type De Visa</div>
+                        <div hidden class="german">Visum Typ</div>
+                        <div hidden class="ukranian">Тип візи</div>
+                    </label>
                     <InputSelect @bind-Value="visaApp.VisaType" id="visaType" class="form-select">
                         <option selected>Select Visa Type</option>
                         @foreach (string name in Enum.GetNames(typeof(VisaType)))
@@ -66,11 +117,21 @@
                     </InputSelect>
                 </div>
                 <div class="mb-3">
-                    <label for="purposeOfStay" class="form-label">Purpose Of Stay</label>
+                    <label for="purposeOfStay" class="form-label">
+                        <div class="english">Purpose Of Stay</div>
+                        <div hidden class="french">Objet Du Séjour</div>
+                        <div hidden class="german">Zweck Des Aufenthalts</div>
+                        <div hidden class="ukranian">Мета перебування</div>
+                    </label>
                     <InputTextArea @bind-Value="visaApp.PurposeOfStay" class="form-control" id="purposeOfStay" rows="3" />
                 </div>
                 <div class="mb-3">
-                    <label for="countryOfOrigin" class="form-label">Country Of Origin</label>
+                    <label for="countryOfOrigin" class="form-label">
+                        <div class="english">Country Of Origin</div>
+                        <div hidden class="french">Pays d'origine</div>
+                        <div hidden class="german">Herkunftsland</div>
+                        <div hidden class="ukranian">Країна походження</div>
+                    </label>
                     <InputSelect @bind-Value="visaApp.CountryOfOrigin" id="countryOfOrigin" class="form-select">
                         <option value="France">France</option>
                         <option value="Germany">Germany</option>
@@ -78,60 +139,164 @@
                     </InputSelect>
                 </div>
                 <div class="mb-3">
-                    <label for="countryOfDestination" class="form-label">Country Of Destination</label>
+                    <label for="countryOfDestination" class="form-label">
+                        <div class="english">Country Of Destination</div>
+                        <div hidden class="french">Pays De Destination</div>
+                        <div hidden class="german">Land Der Bestimmung</div>
+                        <div hidden class="ukranian">Країна призначення</div>
+                    </label>
                     <InputSelect @bind-Value="visaApp.CountryOfDestination" id="countryOfDestination" class="form-select">
                         <option value="United Kingdom">United Kingdom</option>
                     </InputSelect>
                 </div>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
-                    <button type="button" class="btn btn-primary next-step">Next</button>
+                    <button type="button" class="btn btn-secondary prev-step border">
+                        <div class="english">Previous</div>
+                        <div hidden class="french">Précédent</div>
+                        <div hidden class="german">Vorherige</div>
+                        <div hidden class="ukranian">Попередні</div>
+                    </button>
+                    <button type="button" class="btn btn-primary next-step">
+                        <div class="english">Next</div>
+                        <div hidden class="french">Suivant</div>
+                        <div hidden class="german">Weiter</div>
+                        <div hidden class="ukranian">Далі</div>
+                    </button>
                 </div>
                 <ValidationSummary />
             </div>
 
             <div class="step step-3 p-1">
                 <!-- Step 3 form fields here -->
-                <h3>Documentation</h3>
+                <h3 class="english">Documentation</h3>
+                <h3 hidden class="french">Documentation</h3>
+                <h3 hidden class="german">Dokumentation</h3>
+                <h3 hidden class="ukranian">Документація</h3>
+
                 <div class="mb-3">
-                    <label for="identification" class="form-label">Please upload a form of Identification</label>
+                    <label for="identification" class="form-label">
+                        <div class="english">Please upload a form of Identification</div>
+                        <div hidden class="french">Veuillez télécharger une pièce d'identité</div>
+                        <div hidden class="german">Bitte laden Sie einen Ausweis hoch</div>
+                        <div hidden class="ukranian">Будь ласка, завантажте форму ідентифікації</div>
+                    </label>
                     <InputFile class="form-control" type="file" id="identification" aria-describedby="identificationHelp" />
                     <div id="identificationHelp" class="form-text">
-                        Scan of Drivers License, Passport, Birth Certificate, etc. Seek visa advice for more info...
+                        <div class="english">Scan of Drivers License, Passport, Birth Certificate, etc. Seek visa advice for more info...</div>
+                        <div hidden class="french">Numérisation du permis de conduire, du passeport, de l'acte de naissance, etc. Demandez conseil en matière de visa pour plus d'informations...</div>
+                        <div hidden class="german">Scan von Führerschein, Reisepass, Geburtsurkunde usw. Für weitere Informationen wenden Sie sich bitte an Ihren Visumsberater...</div>
+                        <div hidden class="ukranian">Скан водійських прав, паспорта, свідоцтва про народження тощо. Зверніться до візового відділу для отримання додаткової інформації...</div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="proofOfAddress" class="form-label">Please upload a Proof Of Address</label>
+                    <label for="proofOfAddress" class="form-label">
+                        <div class="english">Please upload a Proof Of Address</div>
+                        <div hidden class="french">Veuillez télécharger un justificatif de domicile</div>
+                        <div hidden class="german">Bitte laden Sie einen Adressnachweis hoch</div>
+                        <div hidden class="ukranian">Будь ласка, завантажте підтвердження адреси</div>
+                    </label>
                     <InputFile  class="form-control" type="file" id="proofOfAddress" aria-describedby="proofOfAddressHelp" />
                     <div id="proofOfAddressHelp" class="form-text">
-                        Scan of Utility bill, bank statement, tax documents, etc. Seek visa advice for more info...
+                        <div class="english">Scan of Utility bill, bank statement, tax documents, etc. Seek visa advice for more info...</div>
+                        <div hidden class="french">Scan des factures de services publics, des relevés bancaires, des documents fiscaux, etc. Pour plus d'informations, demandez conseil à un spécialiste des visas...</div>
+                        <div hidden class="german">Scannen von Rechnungen von Versorgungsunternehmen, Kontoauszügen, Steuerunterlagen usw. Für weitere Informationen wenden Sie sich bitte an Ihren Visumsberater...</div>
+                        <div hidden class="ukranian">Скан рахунку за комунальні послуги, виписка з банку, податкові документи тощо. Зверніться до візового відділу для отримання додаткової інформації...</div>
                     </div>
                 </div>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
-                    <button type="button" class="btn btn-primary next-step">Next</button>
+                    <button type="button" class="btn btn-secondary prev-step border">
+                        <div class="english">Previous</div>
+                        <div hidden class="french">Précédent</div>
+                        <div hidden class="german">Vorherige</div>
+                        <div hidden class="ukranian">Попередні</div>
+                    </button>
+                    <button type="button" class="btn btn-primary next-step">
+                        <div class="english">Next</div>
+                        <div hidden class="french">Suivant</div>
+                        <div hidden class="german">Weiter</div>
+                        <div hidden class="ukranian">Далі</div>
+                    </button>
                 </div>
                 <ValidationSummary />
             </div>
 
             <div class="step step-4 p-1">
                 <!-- Step 4 form fields here -->
-                <h3>Confirm and Submit</h3>
+                <h3 class="english">Confirm and Submit</h3>
+                <h3 hidden class="french">Confirmer et Soumettre</h3>
+                <h3 hidden class="german">Bestätigen und Absenden</h3>
+                <h3 hidden class="ukranian">Підтвердити та надіслати</h3>
 
                 <ul class="list-group list-group-flush pb-1">
-                    <li class="list-group-item">Full Legal Name: @visaApp.FullLegalName</li>
-                    <li class="list-group-item">Date Of Birth: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</li>
-                    <li class="list-group-item">Email Address: @visaApp.EmailAddress</li>
-                    <li class="list-group-item">Contact Number: @visaApp.ContactNumber.ToString()</li>
-                    <li class="list-group-item">Visa Type: @visaApp.VisaType.ToString()</li>
-                    <li class="list-group-item">Purpose Of Stay: @visaApp.PurposeOfStay</li>
-                    <li class="list-group-item">Country Of Origin: @visaApp.CountryOfOrigin</li>
-                    <li class="list-group-item">Country Of Destination: @visaApp.CountryOfDestination</li>
-                    <li class="list-group-item">Documentation: @documentationMessage</li>
+                    <li class="list-group-item">
+                        <div class="english">Full Legal Name: @visaApp.FullLegalName</div>
+                        <div hidden class="french">Nom Légal Complet: @visaApp.FullLegalName</div>
+                        <div hidden class="german">Vollständiger Rechtlicher Name: @visaApp.FullLegalName</div>
+                        <div hidden class="ukranian">Повна юридична назва: @visaApp.FullLegalName</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Date Of Birth: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</div>
+                        <div hidden class="french">Date De Naissance: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</div>
+                        <div hidden class="german">Geburtsdatum: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</div>
+                        <div hidden class="ukranian">Дата народження: @visaApp.DateOfBirth.ToString("dd/MM/yyyy")</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Email Address: @visaApp.EmailAddress</div>
+                        <div hidden class="french">Adresse Électronique: @visaApp.EmailAddress</div>
+                        <div hidden class="german">Email-Adresse: @visaApp.EmailAddress</div>
+                        <div hidden class="ukranian">Email адреса: @visaApp.EmailAddress</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Contact Number: @visaApp.ContactNumber.ToString()</div>
+                        <div hidden class="french">Numéro De Contact: @visaApp.ContactNumber.ToString()</div>
+                        <div hidden class="german">Kontakt Nummer: @visaApp.ContactNumber.ToString()</div>
+                        <div hidden class="ukranian">Контактний номер: @visaApp.ContactNumber.ToString()</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Visa Type: @visaApp.VisaType.ToString()</div>
+                        <div hidden class="french">Type De Visa: @visaApp.VisaType.ToString()</div>
+                        <div hidden class="german">Visum Typ: @visaApp.VisaType.ToString()</div>
+                        <div hidden class="ukranian">Тип візи: @visaApp.VisaType.ToString()</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Purpose Of Stay: @visaApp.PurposeOfStay</div>
+                        <div hidden class="french">Objet Du Séjour: @visaApp.PurposeOfStay</div>
+                        <div hidden class="german">Zweck Des Aufenthalts: @visaApp.PurposeOfStay</div>
+                        <div hidden class="ukranian">Мета перебування: @visaApp.PurposeOfStay</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Country Of Origin: @visaApp.CountryOfOrigin</div>
+                        <div hidden class="french">Pays d'origine: @visaApp.CountryOfOrigin</div>
+                        <div hidden class="german">Herkunftsland: @visaApp.CountryOfOrigin</div>
+                        <div hidden class="ukranian">Країна походження: @visaApp.CountryOfOrigin</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Country Of Destination: @visaApp.CountryOfDestination</div>
+                        <div hidden class="french">Pays De Destination: @visaApp.CountryOfDestination</div>
+                        <div hidden class="german">Land Der Bestimmung: @visaApp.CountryOfDestination</div>
+                        <div hidden class="ukranian">Країна призначення: @visaApp.CountryOfDestination</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="english">Documentation: @documentationMessage</div>
+                        <div hidden class="french">Documentation: @documentationMessage</div>
+                        <div hidden class="german">Dokumentation: @documentationMessage</div>
+                        <div hidden class="ukranian">Документація: @documentationMessage</div>
+                        
+                    </li>
                 </ul>
                 <div class="pb-3">
-                    <button type="button" class="btn btn-secondary prev-step border">Previous</button>
-                    <button type="submit" class="btn btn-success pb-2">Submit</button>
+                    <button type="button" class="btn btn-secondary prev-step border">
+                        <div class="english">Previous</div>
+                        <div hidden class="french">Précédent</div>
+                        <div hidden class="german">Vorherige</div>
+                        <div hidden class="ukranian">Попередні</div>
+                    </button>
+                    <button type="submit" class="btn btn-success pb-2">
+                        <div class="english">Submit</div>
+                        <div hidden class="french">Soumettre</div>
+                        <div hidden class="german">Einreichen</div>
+                        <div hidden class="ukranian">Надіслати</div>
+                    </button>
                 </div>
                 <ValidationSummary />
                 <div style="text-align: center; color: @msgColour">@formStatusMsg</div>
