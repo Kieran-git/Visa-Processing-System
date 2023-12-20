@@ -1,7 +1,0 @@
-@startuml
-class VisaApplicationData {
-    + CreateVisaApplication() : bool
-    + GetVisaApplicationByID(VisaApplicationID:int) : VisaApplication
-}
-IVisaApplicationData <|-- VisaApplicationData
-@enduml

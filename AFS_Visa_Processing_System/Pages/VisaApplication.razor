@@ -345,7 +345,7 @@
     {
         try
         {
-            if (visaAppRepo.CreateVisaApplication())
+            if (visaAppRepo.CreateVisaApplication(visaApp))
             {
                 visaAppCreated = true;
                 formStatusMsg = "Visa Application has been succesfully created.";
