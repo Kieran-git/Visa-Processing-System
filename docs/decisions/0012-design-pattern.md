@@ -25,3 +25,6 @@ Therefore I have decided on Event sourcing as I believe it is an essential and v
 
 * A clear traceable log of how the visa application moves and changes through the system.
 * A way to prove who makes what changes within the system for auditing purposes.
+
+### References 
+Richardson, C. (n.d.). Pattern: Event sourcing. Microservices.io. Retrieved November 26, 2023, from https://microservices.io/patterns/data/event-sourcing.html
