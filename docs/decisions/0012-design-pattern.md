@@ -28,3 +28,5 @@ Therefore I have decided on Event sourcing as I believe it is an essential and v
 
 ### References 
 Richardson, C. (n.d.). Pattern: Event sourcing. Microservices.io. Retrieved November 26, 2023, from https://microservices.io/patterns/data/event-sourcing.html
+<br>
+Microsoft. (n.d.). CQRS pattern - Azure Architecture Center. Microsoft Learn. Retrieved November 26, 2023, from https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs
