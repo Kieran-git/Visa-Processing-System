@@ -22,3 +22,6 @@ Therefore it makes a lot more sense to implement a more universal solution such 
 * Simple username and password based hacking attempts will be prevented.
 * Also provides a method of recovering accounts in the event of forgetting passwords.
 * A simple and effective method of authenticating the user to access the system.
+
+### References
+Maayan, G. D. (n.d.). User Authentication Methods & Technologies to Prevent Breach. ID R&D. Retrieved November 21, 2023, from https://www.idrnd.ai/5-authentication-methods-that-can-prevent-the-next-breach/
