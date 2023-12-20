@@ -9,6 +9,6 @@
   - Design
   - Architectural Validation
   - User Evaluation
-  
+* **Architectural decision records** can be found at "/docs/decisions/".
 
 * The ****proof of concept prototype**** can be found at "/AFS_Visa_Processing_System/" this is a subset of my defined scope see Task 2 for more info.
