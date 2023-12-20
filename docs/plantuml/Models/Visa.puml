@@ -1,6 +1,0 @@
-@startuml
-class Visa {
-    + VisaID : int <<get>>
-    + VisaType : VisaType? <<get>>
-}
-@enduml

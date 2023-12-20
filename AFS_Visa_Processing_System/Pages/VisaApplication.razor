@@ -345,6 +345,8 @@
     {
         try
         {
+            if(visaApp == null) return;
+            
             if (visaAppRepo.CreateVisaApplication(visaApp))
             {
                 visaAppCreated = true;

@@ -1,6 +1,0 @@
-@startuml
-class VisaApplicationBL {
-    + VisaApplicationBL(visaApplicationDAL:IVisaApplicationDAL)
-    + GetVisaApplication(visaApplicationID:int) : VisaApplication
-}
-@enduml

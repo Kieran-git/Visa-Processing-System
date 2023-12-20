@@ -1,8 +1,0 @@
-@startuml
-interface IVisaApplicationDAL {
-}
-class VisaApplicationDAL {
-    + SelectVisaApplication(visaApplicationID:int) : VisaApplication
-}
-IVisaApplicationDAL <|-- VisaApplicationDAL
-@enduml
