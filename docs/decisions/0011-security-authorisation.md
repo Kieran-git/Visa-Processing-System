@@ -24,4 +24,5 @@ In conclusion I believe that RBAC despite its potenital shortcoming is the much 
 * RBAC provides a simple and quick way of setting up user authorisation in order to determing who has access to what within the system. 
 * If a user needs access to another area of the system they can simply be assigned the role that grants this access so it makes administrative tasks much easier.
 
-Used reference: https://www.okta.com/uk/identity-101/role-based-access-control-vs-attribute-based-access-control/#:~:text=The%20main%20difference%20between%20RBAC,%2C%20action%20types%2C%20and%20more
+### References
+Okta. (2023, September 15). RBAC vs. ABAC: Definitions & When to Use. Okta. Retrieved October 13, 2023, from https://www.okta.com/uk/identity-101/role-based-access-control-vs-attribute-based-access-control/
