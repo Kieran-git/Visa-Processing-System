@@ -22,3 +22,6 @@ In conclusion I chose to deal with applicants coming from Germany, Ukraine and F
 
 * The chosen coverage and scope will demonstrate the ability to handle a large amount of applicants and thus data, of which there is research to back this up (Ali, 2022).
 * Including Ukraine in the chosen scope of countries is very relevant as of the moment because there is a large influx of people seeking immigration to other countries which requires a visa for long stays of residence.
+
+### References
+Ali, A. (2022, June 14). EU Citizens Moving to The UK After Brexit in 2023. Immigration Lawyers. Retrieved October 5, 2023, from https://immigrationlawyers-london.com/blog/eu-citizens-moving-to-the-uk-after-brexit.php
