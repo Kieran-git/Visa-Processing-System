@@ -4,7 +4,7 @@ namespace AFS_Visa_Processing_System.Services
 {
     public interface IVisaApplicationRepository
     {
-        bool CreateVisaApplication();
+        bool CreateVisaApplication(VisaApplication visaApplication);
         VisaApplication GetVisaApplicationByID(int VisaApplicationID);
         bool SaveToCache();
     }

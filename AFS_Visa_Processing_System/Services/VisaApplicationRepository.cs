@@ -4,7 +4,7 @@ namespace AFS_Visa_Processing_System.Services
 {
     public class VisaApplicationRepository : IVisaApplicationRepository
     {
-        public bool CreateVisaApplication()
+        public bool CreateVisaApplication(VisaApplication visaApplication)
         {
             return false;
         }
