@@ -6,6 +6,5 @@ namespace AFS_Visa_Processing_System.Services
     {
         bool CreateVisaApplication(VisaApplication visaApplication);
         VisaApplication GetVisaApplicationByID(int VisaApplicationID);
-        bool SaveToCache();
     }
 }

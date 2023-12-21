@@ -14,10 +14,5 @@ namespace AFS_Visa_Processing_System.Services
             // Not implemented dummy data
             return new VisaApplication();
         }
-
-        public bool SaveToCache() 
-        {
-            return false;     
-        }
     }
 }
