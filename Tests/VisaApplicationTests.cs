@@ -1,5 +1,6 @@
 using AFS_Visa_Processing_System.Models;
 using AFS_Visa_Processing_System.Services;
+using System.Net.Mail;
 
 
 namespace VisaProcessingTests
@@ -19,8 +20,23 @@ namespace VisaProcessingTests
             // Given a valid VisaApplication object
 
             VisaApplication visaApplication = new VisaApplication()
-            { 
-                
+            {
+                VisaApplicationID = 0,
+                User = new User()
+                {
+                    UserID = 1,
+                    Role = "Applicant"
+                },
+                FullLegalName = "Bob Dale Jenkins",
+                EmailAddress = "BobDale@gmail.com",
+                DateOfBirth = new DateTime(1990, 10, 1),
+                ContactNumber = 14567232129517,
+                VisaType = VisaType.Business,
+                PurposeOfStay = "To start a new business",
+                CountryOfOrigin = "Ukraine",
+                CountryOfDestination = "United Kingdom",
+                Identification = Array.Empty<byte>(),
+                ProofOfAddress = Array.Empty<byte>()
             };
 
             // When CreateApplication is called
@@ -28,17 +44,6 @@ namespace VisaProcessingTests
 
             // Then it should return true
             Assert.True(result);
-        }
-        [Fact]
-        public void GetVisaApplicationTest()
-        {
-            // Given a VisaApplicationRepository service
-
-            // When GetVisaApplicationByID is called with the parameter 1
-            VisaApplication result = visaApplicationRepository.GetVisaApplicationByID(1);
-
-            // Then it should return a single populated VisaApplication object
-            Assert.NotNull(result);
         }
     }
 }

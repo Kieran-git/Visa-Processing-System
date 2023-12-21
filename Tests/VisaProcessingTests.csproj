@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AFS_Visa_Processing_System\AFS_Visa_Processing_System.csproj" />
+  </ItemGroup>
+
 </Project>

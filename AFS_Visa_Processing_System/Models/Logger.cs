@@ -5,9 +5,7 @@
         public static bool LogEvent(string title, string description)
         {
             // Log event to database
-            // return true;
-
-            return false;
+            return MockDatabase.WriteToLogs(new Event(title, description));
         }
     }
 }

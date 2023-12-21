@@ -6,13 +6,18 @@ namespace AFS_Visa_Processing_System.Services
     {
         public bool CreateVisaApplication(VisaApplication visaApplication)
         {
-            return false;
+            if (MockDatabase.WriteToVisaApplication(visaApplication))
+            {
+                Logger.LogEvent("New Visa Application",$"New Visa Application was succesfully created with ID: {visaApplication.VisaApplicationID}");
+                return true;
+            }
+            else
+                return false; 
         }
 
         public VisaApplication GetVisaApplicationByID(int VisaApplicationID)
         {
-            // Not implemented dummy data
-            return new VisaApplication();
+            return MockDatabase.ReadFromVisaApplication(VisaApplicationID);
         }
     }
 }
