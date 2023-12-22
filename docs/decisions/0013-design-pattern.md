@@ -1,4 +1,4 @@
-# 13. Architectural Design Pattern Decision
+# 13. Code Design Pattern Decision
 Date: 27/11/2023
 ## Context and Problem Statement
 
