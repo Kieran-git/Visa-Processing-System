@@ -5,8 +5,7 @@
 * Documents consist of:
   - Requirements
   - User Identification
-  - Architecture
-  - Design
+  - Architecture & Design
   - Architectural Validation
   - User Evaluation
 * **Architectural decision records** can be found at "/docs/decisions/".
