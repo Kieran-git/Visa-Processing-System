@@ -1,8 +1,8 @@
-# 12. Design Pattern Decision
+# 12. Architectural Design Pattern Decision
 Date: 20/11/2023
 ## Context and Problem Statement
 
-What design pattern to implement into the system in order to...
+What architectural design pattern to implement into the system in order to promote a secure and ultimately more managable system.
 
 ## Considered Options
 
