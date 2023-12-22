@@ -2,7 +2,7 @@
 Date: 19/10/2023
 ## Context and Problem Statement
 
-We need to decide on the coverage for the system including from what countries will people be applying from and if we will initially cover multiple places to apply to.
+I need to decide on the coverage for the system including from what countries will people be applying from and if we will initially cover multiple places to apply to.
 For more visa applciation destinations this will result in more type of visas needing to be accounted for.
 
 ## Considered Options
