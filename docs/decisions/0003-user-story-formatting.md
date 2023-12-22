@@ -2,7 +2,7 @@
 Date: 01/10/2023
 ## Context and Problem Statement
 
-We need to decide on a conistent template to be used for creating user stories, this also refers to any more created as more requirements possibly appear later in the software's development life cycle.
+I need to decide on a conistent template to be used for creating user stories, this also refers to any more created as more requirements possibly appear later in the software's development life cycle.
 
 ## Considered Options
 
