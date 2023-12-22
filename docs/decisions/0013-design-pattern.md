@@ -19,5 +19,9 @@ On the other hand I do beleive the creational pattern factory is applicable to m
 
 ### Consequences
 
-* Adhering to the single responsibility principle and I can introduce new visa types with ease using the factory pattern.
+* Adhering to the single responsibility principle and I can introduce new visa types with ease using the factory pattern. (Refactoring Guru. (n.d.))
 * Compliments the idea of an architecture that is ready for scaling the system up to more countries as intended to do with the system.
+
+### References
+
+Refactoring Guru. (n.d.). Refactoring and Design Patterns. Retrieved December 22, 2023, from https://refactoring.guru/
