@@ -318,26 +318,12 @@
     string formStatusMsg = "";
     string msgColour = "";
 
-    bool cacheExists = false; // Not implemented
-
-    protected void OnInitalized()
-    {
-
-    }
-
     protected override void OnParametersSet()
     {
         documentationMessage = validDocumentation ? "Documentation has been uploaded." : "Documentation has not been uploaded.";
 
-        if (cacheExists)
-        {
-            // Get in progress visa application
-        }
-        else
-        {
-            // Create fresh empty object to be populated by form
-            visaApp = new Models.VisaApplication();
-        }
+        // Create fresh empty object to be populated by form
+        visaApp = new Models.VisaApplication();
     }
 
     // Can only enter this function when form fields are all valid
